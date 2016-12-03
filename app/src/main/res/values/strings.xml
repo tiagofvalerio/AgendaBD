@@ -11,6 +11,7 @@
     <string name="email">Email</string>
     <string name="bt_menos"> - </string>
     <string name="bt_mais"> + </string>
+    <string name="aniversario"> Aniversário(MM/YYYY) </string>
 </resources>
 
 

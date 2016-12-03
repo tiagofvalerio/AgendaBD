@@ -9,6 +9,7 @@ public class Contato implements Serializable{
     private String fone;
     private String email;
     private String foneAdicional;
+    private String dataAniversario;
 
     public Contato()
     {
@@ -43,6 +44,12 @@ public class Contato implements Serializable{
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getDataAniversario() {
+        return dataAniversario;
+    }
+    public void setDataAniversario(String dataAniversario) {
+        this.dataAniversario = dataAniversario;
     }
 }
 
