@@ -8,6 +8,7 @@ public class Contato implements Serializable{
     private String nome;
     private String fone;
     private String email;
+    private String foneAdicional;
 
     public Contato()
     {
@@ -30,6 +31,12 @@ public class Contato implements Serializable{
     }
     public void setFone(String fone) {
         this.fone = fone;
+    }
+    public String getFoneAdicional() {
+        return foneAdicional;
+    }
+    public void setFoneAdicional(String foneAdicional) {
+        this.foneAdicional = foneAdicional;
     }
     public String getEmail() {
         return email;

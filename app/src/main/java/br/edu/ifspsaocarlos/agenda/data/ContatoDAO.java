@@ -28,7 +28,7 @@ public class ContatoDAO {
 
         Cursor cursor;
 
-        String[] cols = new String[]{SQLiteHelper.KEY_ID, SQLiteHelper.KEY_NAME, SQLiteHelper.KEY_FONE, SQLiteHelper.KEY_EMAIL};
+        String[] cols = new String[]{SQLiteHelper.KEY_ID, SQLiteHelper.KEY_NAME, SQLiteHelper.KEY_FONE, SQLiteHelper.KEY_EMAIL, SQLiteHelper.KEY_FONE_ADICIONAL};
         String where = null;
         String[] argWhere = null;
 
@@ -52,6 +52,7 @@ public class ContatoDAO {
                 contato.setNome(cursor.getString(1));
                 contato.setFone(cursor.getString(2));
                 contato.setEmail(cursor.getString(3));
+                contato.setFoneAdicional(cursor.getString(4));
                 contatos.add(contato);
                 cursor.moveToNext();
             }
@@ -67,6 +68,7 @@ public class ContatoDAO {
         updateValues.put(SQLiteHelper.KEY_NAME, c.getNome());
         updateValues.put(SQLiteHelper.KEY_FONE, c.getFone());
         updateValues.put(SQLiteHelper.KEY_EMAIL, c.getEmail());
+        updateValues.put(SQLiteHelper.KEY_FONE_ADICIONAL, c.getFoneAdicional());
         database.update(SQLiteHelper.DATABASE_TABLE, updateValues, SQLiteHelper.KEY_ID + "="
                 + c.getId(), null);
         database.close();
@@ -79,6 +81,7 @@ public class ContatoDAO {
         values.put(SQLiteHelper.KEY_NAME, c.getNome());
         values.put(SQLiteHelper.KEY_FONE, c.getFone());
         values.put(SQLiteHelper.KEY_EMAIL, c.getEmail());
+        values.put(SQLiteHelper.KEY_FONE_ADICIONAL, c.getFoneAdicional());
         database.insert(SQLiteHelper.DATABASE_TABLE, null, values);
         database.close();
     }
@@ -92,7 +95,7 @@ public class ContatoDAO {
 
     private Cursor buscaPorCampo(String[] cols, String where, String[] argWhere, String nomeCampo) {
         return database.query(SQLiteHelper.DATABASE_TABLE, cols, where, argWhere,
-                null, null, SQLiteHelper.KEY_NAME);
+                null, null, nomeCampo);
     }
 
     private Boolean isEmail(String campo) {
